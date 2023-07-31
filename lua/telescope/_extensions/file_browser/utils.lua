@@ -115,7 +115,9 @@ fb_utils.redraw_border_title = function(current_picker)
   if current_picker.results_border and not finder.results_title then
     local new_title
     if finder.files or finder.cwd_to_path then
-      new_title = Path:new(finder.path):make_relative(vim.loop.cwd())
+      new_title = Path:new(finder.path):absolute(vim.loop.cwd())
+      -- original code ↓ (display title with relative path)
+      -- new_title = Path:new(finder.path):make_relative(vim.loop.cwd())
     else
       new_title = finder.cwd
     end
