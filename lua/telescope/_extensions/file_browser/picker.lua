@@ -118,9 +118,6 @@ fb_picker.file_browser = function(opts)
     .new(opts, {
       prompt_title = opts.files and "File Browser" or "Folder Browser",
       results_title = Path:new(opts.path):absolute(cwd) .. os_sep,
-      -- original code ↓ (display title with relative path)
-      --   NOTE: Path:new():make_relative is defined in plenary.path https://github.com/wsdjeg/SpaceVim/blob/67249406dffe150d07d5546fe4198582fc912e7c/bundle/plenary.nvim/lua/plenary/path.lua#L320
-      -- results_title = Path:new(opts.path):make_relative(cwd) .. os_sep,
       prompt_prefix = fb_utils.relative_path_prefix(opts.finder),
       previewer = conf.file_previewer(opts),
       sorter = conf.file_sorter(opts),
